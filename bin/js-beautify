@@ -14,7 +14,7 @@ var options = {
     preserve_newlines: true,
     //preserve_max_newlines
     jslint_happy: false,
-    brace_style: "collapse" // - "collapse" | "expand" | "end-expand"
+    brace_style: "end-expand" // - "collapse" | "expand" | "end-expand"
 }
 
 
