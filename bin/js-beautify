@@ -8,11 +8,21 @@ var fs = require('fs'),
     stdin,
     result;
 
+var options = {
+    indent_size: 2,
+    indent_char: ' ',
+    preserve_newlines: true,
+    //preserve_max_newlines
+    jslint_happy: false,
+    brace_style: "collapse" // - "collapse" | "expand" | "end-expand"
+}
+
+
 //if given a file, process it
 if (process.argv.length > 2) {
     input_file = process.argv[2];
     ugly_js = fs.readFileSync(input_file, 'utf8');
-    result = js_beautify(ugly_js);
+    result = js_beautify(ugly_js, options);
     console.log(result);
 } else {
     //use std in
@@ -24,7 +34,7 @@ if (process.argv.length > 2) {
     });
 
     stdin.on('end', function () {
-        result = js_beautify(ugly_js);
+        result = js_beautify(ugly_js, options);
         process.stdout.write(result);
     });
 
