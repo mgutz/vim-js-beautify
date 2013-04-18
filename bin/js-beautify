@@ -14,8 +14,8 @@ var options = {
     preserve_newlines: true,
     //preserve_max_newlines
     jslint_happy: false,
-    brace_style: "end-expand" // - "collapse" | "expand" | "end-expand"
-}
+    brace_style: "collapse" // - "collapse" | "expand" | "end-expand" | "expand-strict"
+};
 
 
 //if given a file, process it
@@ -25,7 +25,6 @@ if (process.argv.length > 2) {
     result = js_beautify(ugly_js, options);
     console.log(result);
 } else {
-    //use std in
     stdin = process.openStdin();
     stdin.setEncoding('utf8');
 
@@ -37,5 +36,4 @@ if (process.argv.length > 2) {
         result = js_beautify(ugly_js, options);
         process.stdout.write(result);
     });
-
 }
